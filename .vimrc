@@ -118,49 +118,12 @@ syntax on
 set cursorline
 """ - Visual
 
-""" + Hex Editor
-" Map HexEditToggle to <F9>
-nnoremap <silent> <F9> :call HexEditToggle()<CR>
-let g:hexmode=0
-function! HexEditToggle()
-  if g:hexmode
-    let g:hexmode=0
-    %!xxd -r
-  else
-    let g:hexmode=1
-    %!xxd
-  endif
-endfunction
-""" - Hex Editor
-
 """ + Windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 """ - Windows
-
-""" + Tabs
-nnoremap <silent> <Tab><Tab> :tabnew<CR>
-nnoremap <silent> <Tab>q :tabclose<CR>
-nnoremap <silent> <Tab>o :tabonly<CR>
-nnoremap <silent> <Tab>s :tabs<CR>
-nnoremap <silent> <Tab>f :tabfirst<CR>
-nnoremap <silent> <Tab>l :tablast<CR>
-nnoremap <silent> <Tab>n :tabnext<CR>
-nnoremap <silent> <Tab>p :tabprevious<CR>
-nnoremap <silent> <Tab><Right> :tabnext<CR>
-nnoremap <silent> <Tab><Left> :tabprevious<CR>
-nnoremap <silent> <Tab>1 :tabnext 1<CR>
-nnoremap <silent> <Tab>2 :tabnext 2<CR>
-nnoremap <silent> <Tab>3 :tabnext 3<CR>
-nnoremap <silent> <Tab>4 :tabnext 4<CR>
-nnoremap <silent> <Tab>5 :tabnext 5<CR>
-nnoremap <silent> <Tab>6 :tabnext 6<CR>
-nnoremap <silent> <Tab>7 :tabnext 7<CR>
-nnoremap <silent> <Tab>8 :tabnext 8<CR>
-nnoremap <silent> <Tab>9 :tabnext 9<CR>
-""" - Tabs
 
 filetype off                  " required
 
@@ -289,9 +252,9 @@ set noshowmode
 
 """ + Plugin: indentLine
 " Displying thin vertical lines at each indentation level for code
-Plugin 'Yggdroot/indentLine'
+"Plugin 'Yggdroot/indentLine'
 " Change indentLine char
-let g:indentLine_char='┆'
+"let g:indentLine_char='┆'
 """ - Plugin: indentLine
 
 """ + Plugin: Easymotion
@@ -322,35 +285,7 @@ let g:syntastic_python_checkers = ['flake8']
 """ + Plugin: Vdebug
 " Powerful debugger client for Vim using DBGP protocol
 " Tested with PHP, Python, Ruby, Perl, TCL and NodeJS
-Plugin 'joonty/vdebug'
-let g:vdebug_keymap = {
-\ "run": "<F5>",
-\ "run_to_cursor": "<F6>",
-\ "step_over": "<F2>",
-\ "step_into": "<F3>",
-\ "step_out": "<F4>",
-\ "close": "<F7>",
-\ "detach": "<F8>",
-\ "set_breakpoint": "<Leader>b",
-\ "eval_visual": "<Leader>e"
-\}
-let g:vdebug_options = {
-\ "port": 9000,
-\ "server": 'localhost',
-\ "timeout": 20,
-\ "on_close": 'detach',
-\ "break_on_open": 0,
-\ "ide_key": '',
-\ "path_maps": {},
-\ "debug_window_level": 0,
-\ "debug_file_level": 1,
-\ "debug_file": "/tmp/vdebug.log",
-\ "watch_window_style": 'expanded',
-\ "marker_default": '*',
-\ "marker_closed_tree": '▸',
-\ "marker_open_tree": '▾'
-\}
-""" - Plugin: Vdebug
+
 
 """ + Plugin: UltiSnips
 " Snippet engine for Vim
@@ -359,9 +294,9 @@ Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsListSnippets="<Tab><Tab>"
+"let g:UltiSnipsListSnippets="<Tab><Tab>"
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsEditSplit="vertical"
 """ - Plugin: UltiSnips
 
 """ + Plugin: Vim Snippets
@@ -372,59 +307,11 @@ Plugin 'honza/vim-snippets'
 " Scala
 " Plugin 'derekwyatt/vim-scala'
 
-" Python
-""" + Plugin: Jedi-Vim
-" Vim binding for the autocompletion library Jedi
-Plugin 'davidhalter/jedi-vim'
-" Enable the default initialization routine
-let g:jedi#auto_initialization=1
-" Disable the default vim configuration
-let g:jedi#auto_vim_configuration=0
-" Show the function call signature window during writing arugments
-let g:jedi#show_call_signatures=1
-" Disable automatically starts completion upon typing
-let g:jedi#popup_on_dot=0
-" Automatically select the first entry upon starting completion
-let g:jedi#popup_select_first=0
-" Enable Jedi completions
-let g:jedi#completions_enabled=1
-" Open a new tab if use the go to
-let g:jedi#use_tabs_not_buffers=1
-" Don't want the docstring window to popup during compeletion
-autocmd FileType python setlocal completeopt-=preview
-" Key Bindings for Jedi-Vim
-let g:jedi#goto_assignments_command="<leader>g"
-let g:jedi#goto_definitions_command="<leader>d"
-let g:jedi#documentation_command="K"
-let g:jedi#usages_command="<leader>n"
-let g:jedi#completions_command="<C-Space>"
-let g:jedi#rename_command="<leader>r"
-""" - Plugin: Jedi-Vim
 
 """ + Plugin: Vim Virtualenv
 " Provide virtualenv's functions for Vim
 Plugin 'jmcantrell/vim-virtualenv'
 """ - Plugin: Vim Virtualenv
-
-" HTML & CSS
-""" + Plugin: Emmet
-" Provide Zen-coding for Vim
-Plugin 'mattn/emmet-vim'
-" Enable all functions, which is equal to
-" n: normal, i: insert: v: visual, a: all
-let g:user_emmet_mode='i'
-" Remap the default Emmet leader key <C-Y>
-let g:user_emmet_leader_key='<C-Y>'
-" Customize the behavior of the languages
-let g:user_emmet_settings={
-\ 'xml': {
-\   'extends': 'html',
-\ },
-\ 'haml': {
-\   'extends': 'html',
-\ },
-\}
-""" - Plugin: Emmet
 
 " Themes
 " Plugin 'flazz/vim-colorschemes'
