@@ -15,7 +15,7 @@ set history=256
 " Time to wait after ESC (default causes an annoying delay)
 set timeoutlen=250
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard+=unnamed
+" set clipboard+=unnamed
 " Optimize for fast terminal connections
 set ttyfast
 " Enable mouse in all modes
