@@ -289,11 +289,11 @@ let g:syntastic_python_checkers = ['flake8']
 
 """ + Plugin: UltiSnips
 " Snippet engine for Vim
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 " Configure keys trigerring UltiSnips
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+" let g:UltiSnipsExpandTrigger="<Tab>"
+" let g:UltiSnipsJumpForwardTrigger="<Tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 "let g:UltiSnipsListSnippets="<Tab><Tab>"
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
@@ -316,7 +316,7 @@ Plugin 'jmcantrell/vim-virtualenv'
 " Themes
 " Plugin 'flazz/vim-colorschemes'
 Plugin 'jnurmine/Zenburn'
-Plugin 'tomasr/molokai'
+" Plugin 'tomasr/molokai'
 " Match the original monokai background color
 let g:molokai_original=1
 " Bring the 256 color version
@@ -337,5 +337,5 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 """ + Themes
-colorscheme molokai
+" colorscheme molokai
 """ - Themes

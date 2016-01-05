@@ -51,6 +51,7 @@ plugins=(git)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/Users/leek1211/.composer/vendor/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,3 +85,11 @@ alias gcj_input="python ../../codejam-commandline-1.2-beta1/gcj_download_input.p
 alias gcj_submit="python ../../codejam-commandline-1.2-beta1/gcj_submit_solution.py"
 
 alias gcj_status="python ../../codejam-commandline-1.2-beta1/gcj_get_status.py"
+
+# If agent forwarding fails sometimes, do 'ssh-add'
+alias vroong_SSG="ssh -i ~/.ssh/vroong_rsa root@mm.meshkorea.net -A -p 49922"
+alias vroong_otgit="ssh -i ~/.ssh/vroong_rsa root@192.168.0.220 -A -p 49153"
+alias vroong_mm="ssh -i ~/.ssh/vroong_rsa root@mm.meshkorea.net -A -p 49165"
+alias vroong_testing="ssh -i ~/.ssh/vroong_rsa root@otgit.meshkorea.lab -A -p 48822"
+
+source virtualenvwrapper.sh
