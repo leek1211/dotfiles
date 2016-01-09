@@ -15,7 +15,7 @@ set history=256
 " Time to wait after ESC (default causes an annoying delay)
 set timeoutlen=250
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-" set clipboard+=unnamed
+set clipboard+=unnamed
 " Optimize for fast terminal connections
 set ttyfast
 " Enable mouse in all modes
@@ -314,11 +314,12 @@ Plugin 'jmcantrell/vim-virtualenv'
 """ - Plugin: Vim Virtualenv
 
 " Themes
-" Plugin 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'jnurmine/Zenburn'
 " Plugin 'tomasr/molokai'
 " Match the original monokai background color
-let g:molokai_original=1
+" let g:molokai_original=1
+
 " Bring the 256 color version
 let g:rehash256=1
 
@@ -337,5 +338,5 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 """ + Themes
-" colorscheme molokai
+colorscheme Tomorrow-Night
 """ - Themes
