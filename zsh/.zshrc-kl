@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -93,3 +94,5 @@ alias vroong_mm="ssh -i ~/.ssh/vroong_rsa root@mm.meshkorea.net -A -p 49165"
 alias vroong_testing="ssh -i ~/.ssh/vroong_rsa root@otgit.meshkorea.lab -A -p 48822"
 
 source virtualenvwrapper.sh
+alias e="atom -nw"
+alias tensorflow="source ~/ML/tensorflow/bin/activate"
