@@ -81,7 +81,7 @@ set fencs=utf-8,euc-kr
 set backspace=indent,eol,start
 
 " Set the default tabstop
-set tabstop=4
+set tabstop=2
 set softtabstop=2
 " Set the default shift width for indents
 set shiftwidth=2
@@ -128,54 +128,12 @@ nnoremap <C-l> <C-w>l
 filetype indent on    " required
 " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
-
-""" + Plugin: Vim Polyglot
-" A collection of language packs for Vim
-Plugin 'sheerun/vim-polyglot'
-""" - Plugin: Vim Polyglot
-
-
-""" + Plugin: L9
-" Provide some utility functions and commands for programming in Vim
-Plugin 'L9'
-""" - Plugin: L9
-
-""" + Plugin: Vim Git
-" For syntax highlighting and other Git niceties
-Plugin 'tpope/vim-git'
-""" - Plugin: Vim Git
-
-""" + Plugin: Vim Fugitive
-" The best Git wrapper
-" Plugin 'tpope/vim-fugitive'
-""" - Plugin: Vim Fugitive
-
-Plugin 'shougo/vimproc.vim'
-
-""" + Plugin: Gundo
-" Make browsing Vim's powerful undo tree less painful
-Plugin 'sjl/gundo.vim'
+Plug 'L9'
+Plug 'tpope/vim-git'
+Plug 'shougo/vimproc.vim'
+Plug 'sjl/gundo.vim'
 " Map GundoToggle to <F12>
 nnoremap <silent> <F12> :GundoToggle<CR>
 " Set the horizontal width of Gundo graph
@@ -190,11 +148,8 @@ if v:version < '703' || !has('python')
 endif
 " Rendering diff automatically with cursor move
 let g:gundo_auto_preview=1
-""" - Plugin: Gundo
-
-""" + Plugin: NERD Tree
-" Explore filesystem with Vim
-Plugin 'scrooloose/nerdtree'
+"
+Plug 'scrooloose/nerdtree'
 " Map NERDTreeToggle to <F11>
 nnoremap <silent> <F11> :NERDTreeToggle<CR>
 " Ignore some extensions
@@ -204,18 +159,11 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-""" - Plugin: NERD Tree
-
-""" + Plugin: Sudo-Vim
-" Sudo will ask for your password if need be
-" Usage: :e sudo:/etc/passwd
-Plugin 'sudo.vim'
-""" - Plugin: Sudo-Vim
-
-Plugin 'vim-airline/vim-airline-themes'
-""" + Plugin: Airline
+""" - Plug: NERD Tree
+Plug 'vim-airline/vim-airline-themes'
+""" + Plug: Airline
 " Use statusline more effective
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 " let g:airline_powerline_fonts=1
 let g:airline_theme='sol'
 let g:airline#extensions#tabline#enabled=1
@@ -225,59 +173,23 @@ let g:airline_section_b="%{strftime('%H:%M:%S')}"
 let g:airline_section_y="[%{&fileformat}/%{strlen(&fenc)?&fenc:&enc}]"
 " Use airline's showmode
 set noshowmode
-""" - Plugin: Airline
+""" - Plug: Airline
 
-" General
-
-""" + Plugin: Syntastic
-" Syntax checking for Vim with external syntax checker
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}Z
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
-let g:syntastic_python_checkers = ['flake8']
-" let g:syntastic_scala_checkers=['fsc', 'scalac']
-""" - Plugin: Syntastic
+let g:syntastic_mode_map = { "mode": "active",
+                           \ "active_filetypes": [],
+                           \ "passive_filetypes": ["scala"] }
 
-""" + Plugin: Vdebug
-" Powerful debugger client for Vim using DBGP protocol
-" Tested with PHP, Python, Ruby, Perl, TCL and NodeJS
+Plug 'flazz/vim-colorschemes'
+Plug 'sheerun/vim-polyglot'
 
+call plug#end()
 
-""" + Plugin: UltiSnips
-" Snippet engine for Vim
-" Plugin 'SirVer/ultisnips'
-" Configure keys trigerring UltiSnips
-" let g:UltiSnipsExpandTrigger="<Tab>"
-" let g:UltiSnipsJumpForwardTrigger="<Tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-"let g:UltiSnipsListSnippets="<Tab><Tab>"
-" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
-""" - Plugin: UltiSnips
-
-" Themes
-Plugin 'flazz/vim-colorschemes'
-Plugin 'jnurmine/Zenburn'
-" Bring the 256 color version
-let g:rehash256=1
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-" To ignore plugin indent changes, instead use:
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-""" + Themes
-colorscheme Tomorrow-Night-Eighties " Molokai 
-""" - Themes
+colorscheme Molokai
