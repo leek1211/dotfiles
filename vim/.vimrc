@@ -29,9 +29,9 @@ let g:mapleader=","
 set tags=./tags;$HOME
 " Don’t add empty newlines at the end of files
 set binary
-set noeol
 " automatically change window's cwd to file's dir
 set autochdir
+set autoindent
 
 "" Folding
 " Trun on folding
@@ -62,7 +62,7 @@ set modelines=4
 
 "" Match and search
 " Highlight searches
-set hlsearch
+" set hlsearch
 " Ignore case of searches
 set ignorecase
 " be sensitive when there's a capital letter
@@ -81,7 +81,7 @@ set fencs=utf-8,euc-kr
 set backspace=indent,eol,start
 
 " Set the default tabstop
-set tabstop=2
+set tabstop=4
 set softtabstop=2
 " Set the default shift width for indents
 set shiftwidth=2
@@ -125,7 +125,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 """ - Windows
 
-filetype off                  " required
+filetype indent on    " required
+" required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -149,16 +150,16 @@ Plugin 'gmarik/Vundle.vim'
 " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'}
 
+""" + Plugin: Vim Polyglot
+" A collection of language packs for Vim
+Plugin 'sheerun/vim-polyglot'
+""" - Plugin: Vim Polyglot
+
+
 """ + Plugin: L9
 " Provide some utility functions and commands for programming in Vim
 Plugin 'L9'
 """ - Plugin: L9
-
-""" + Plugin: WebAPI Vim
-" Provide interface for Web API
-" Dependency for Emmet-Vim Custom Snippet
-Plugin 'mattn/webapi-vim'
-""" - Plugin: WebAPI Vim
 
 """ + Plugin: Vim Git
 " For syntax highlighting and other Git niceties
@@ -167,8 +168,10 @@ Plugin 'tpope/vim-git'
 
 """ + Plugin: Vim Fugitive
 " The best Git wrapper
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 """ - Plugin: Vim Fugitive
+
+Plugin 'shougo/vimproc.vim'
 
 """ + Plugin: Gundo
 " Make browsing Vim's powerful undo tree less painful
@@ -189,13 +192,6 @@ endif
 let g:gundo_auto_preview=1
 """ - Plugin: Gundo
 
-""" + Plugin: Tagbar
-" Easy way to browse the tags
-Plugin 'majutsushi/tagbar'
-" Map TagbarToggle to <F10>
-nnoremap <silent> <F10> :TagbarToggle<CR>
-""" - Plugin: Tagbar
-
 """ + Plugin: NERD Tree
 " Explore filesystem with Vim
 Plugin 'scrooloose/nerdtree'
@@ -210,32 +206,13 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 """ - Plugin: NERD Tree
 
-""" + Plugin: CtrlP
-" Full path fuzzy file, buffer, mru, tag finder for Vim
-Plugin 'kien/ctrlp.vim'
-let g:ctrlp_map='<c-p>'
-let g:ctrlp_cmd='CtrlP'
-""" - Plugin: CtrlP
-
 """ + Plugin: Sudo-Vim
 " Sudo will ask for your password if need be
 " Usage: :e sudo:/etc/passwd
 Plugin 'sudo.vim'
 """ - Plugin: Sudo-Vim
 
-""" + Plugin: Vim Shell
-" 
-Plugin 'shougo/vimproc'
-Plugin 'shougo/vimshell'
-" http://code.hootsuite.com/vimshell/
-""" - Plugin: Vim Shell
-
-""" + Plugin: Sherlock
-" Add completion for command line mode ':' after a '/', and in command line mode '/' and '?'.
-" Using <C-Tab>, <C-S-Tab>
-Plugin 'sherlock.vim'
-""" - Plugin: Sherlock
-
+Plugin 'vim-airline/vim-airline-themes'
 """ + Plugin: Airline
 " Use statusline more effective
 Plugin 'bling/vim-airline'
@@ -250,23 +227,7 @@ let g:airline_section_y="[%{&fileformat}/%{strlen(&fenc)?&fenc:&enc}]"
 set noshowmode
 """ - Plugin: Airline
 
-""" + Plugin: indentLine
-" Displying thin vertical lines at each indentation level for code
-"Plugin 'Yggdroot/indentLine'
-" Change indentLine char
-"let g:indentLine_char='┆'
-""" - Plugin: indentLine
-
-""" + Plugin: Easymotion
-" Provides a much simpler way to use motions in Vim
-Plugin 'Lokaltog/vim-easymotion'
-""" - Plugin: Easymotion
-
 " General
-""" + Plugin: Vim Polyglot
-" A collection of language packs for Vim
-Plugin 'sheerun/vim-polyglot'
-""" - Plugin: Vim Polyglot
 
 """ + Plugin: Syntastic
 " Syntax checking for Vim with external syntax checker
@@ -299,20 +260,6 @@ let g:syntastic_python_checkers = ['flake8']
 "let g:UltiSnipsEditSplit="vertical"
 """ - Plugin: UltiSnips
 
-""" + Plugin: Vim Snippets
-" Snippets are separated from the engine (for UltiSnips)
-Plugin 'honza/vim-snippets'
-""" - Plugin: Vim Snippets
-
-" Scala
-" Plugin 'derekwyatt/vim-scala'
-
-
-""" + Plugin: Vim Virtualenv
-" Provide virtualenv's functions for Vim
-Plugin 'jmcantrell/vim-virtualenv'
-""" - Plugin: Vim Virtualenv
-
 " Themes
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jnurmine/Zenburn'
@@ -325,9 +272,7 @@ let g:rehash256=1
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -338,5 +283,5 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 """ + Themes
-colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night-Eighties " Molokai 
 """ - Themes
