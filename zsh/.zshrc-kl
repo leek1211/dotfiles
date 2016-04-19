@@ -53,10 +53,6 @@ plugins=(git)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/Users/leek1211/.composer/vendor/bin:$PATH"
-# export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
-
-export SCALA_HOME=/Users/ondrej/scala-2.10.4 
-export PATH=$PATH:$SCALA_HOME/bin
 
 source $ZSH/oh-my-zsh.sh
 

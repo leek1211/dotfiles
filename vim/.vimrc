@@ -233,7 +233,7 @@ set noshowmode
 " Syntax checking for Vim with external syntax checker
 Plugin 'scrooloose/syntastic'
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{SyntasticStatuslineFlag()}Z
 set statusline+=%*
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
@@ -263,10 +263,6 @@ let g:syntastic_python_checkers = ['flake8']
 " Themes
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jnurmine/Zenburn'
-" Plugin 'tomasr/molokai'
-" Match the original monokai background color
-" let g:molokai_original=1
-
 " Bring the 256 color version
 let g:rehash256=1
 
