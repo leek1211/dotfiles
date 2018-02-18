@@ -53,6 +53,11 @@ plugins=(git)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/Users/leek1211/.composer/vendor/bin:$PATH"
+export PATH="/Users/leek1211/anaconda/bin:$PATH"
+export PATH="/Users/leek1211/Library/Python/3.5/bin:$PATH"
+export PATH="$HOME/.npm-packages/bin:$PATH"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,11 +87,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # If agent forwarding fails sometimes, do 'ssh-add'
-alias vroong_SSG="ssh -i ~/.ssh/vroong_rsa root@mm.meshkorea.net -A -p 49922"
-alias vroong_otgit="ssh -i ~/.ssh/vroong_rsa root@192.168.0.220 -A -p 49153"
-alias vroong_mm="ssh -i ~/.ssh/vroong_rsa root@mm.meshkorea.net -A -p 49165"
-alias vroong_testing="ssh -i ~/.ssh/vroong_rsa root@otgit.meshkorea.lab -A -p 48822"
+alias xcode-update="xcode-select --install"
+alias python=python3
+alias pip=pip3
+alias virtualenv="virtualenv -p python3"
 
-alias tensorflow="source ~/tensorflow/bin/activate"
+alias resolveXcode="xcode-select --install"
 
-alias e="atom -nw"

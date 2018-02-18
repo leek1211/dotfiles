@@ -183,13 +183,22 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
+let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_mode_map = { "mode": "active",
                            \ "active_filetypes": [],
                            \ "passive_filetypes": ["scala"] }
 
 Plug 'flazz/vim-colorschemes'
 Plug 'sheerun/vim-polyglot'
+Plug 'terryma/vim-multiple-cursors'
+let g:multi_cursor_next_key='<C-g>'
+let g:multi_cursor_prev_key='<C-S-g>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
-colorscheme Molokai
+
+colorscheme molokai
